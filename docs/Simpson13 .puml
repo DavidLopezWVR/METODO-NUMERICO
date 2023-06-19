@@ -1,0 +1,54 @@
+@startuml METODO NUMERICO
+
+Menu "1"*-- "1" Simbolo
+Menu "1" o-- "1" Simpson13
+Simpson13 "1" o-- "1" Precision
+
+class Menu
+{
+    - double limsuperior
+    - double liminferior
+    - int segmentos
+    - int numDecimales
+
+    + ingresarLimiteSuperior()
+    + ingresarLimiteInferior ()
+    + ingresarSegmentos()
+    + ingresarNumDecimales()
+}
+
+class Simpson13
+{
+    - double a
+    - double b
+    - double h
+    - double x
+    - int n
+    - double resultado
+    - vector table_results;
+
+    + Simpson13(double limInferior, double limSuperior, int segmentos)
+    + func(double x)
+    + integrar()
+    + mostrarResultado()
+}
+
+class Simbolo
+{
+    - double a
+    - double b
+
+    + Simbolo(double limInferior, double limSuperior)
+    + imprimirSimboloIntegral()
+}
+
+class Precision
+{
+    - int decimales
+
+    + Precision(int numDecimales)
+    + setPrecision(double resultado)
+}
+
+
+@enduml
